@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vacantie_app/pages/main_page.dart';
 import 'package:vacantie_app/pages/login_page.dart';
 import 'package:vacantie_app/pages/on_boarding_page.dart';
 import 'package:vacantie_app/pages/sign_up_page.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         '/on-boarding': (context) => OnBoardingPage(),
         '/login': (context) => LoginPage(),
         '/sign-up': (context) => SignUpPage(),
+        '/home': (context) => MainPage(),
       },
     );
   }
