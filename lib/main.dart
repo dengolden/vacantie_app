@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vacantie_app/pages/login_page.dart';
 import 'package:vacantie_app/pages/on_boarding_page.dart';
+import 'package:vacantie_app/pages/sign_up_page.dart';
 import 'package:vacantie_app/pages/splash_page.dart';
 
 void main() {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => SplashPage(),
         '/on-boarding': (context) => OnBoardingPage(),
         '/login': (context) => LoginPage(),
+        '/sign-up': (context) => SignUpPage(),
       },
     );
   }

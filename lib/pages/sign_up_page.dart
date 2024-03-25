@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:vacantie_app/shared/theme.dart';
 import 'package:vacantie_app/widgets/custom_text_form_field.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class SignUpPage extends StatelessWidget {
+  SignUpPage({super.key});
 
+  final TextEditingController fullNameController =
+      TextEditingController(text: '');
+  final TextEditingController birthDateController =
+      TextEditingController(text: '');
+  final TextEditingController countryController =
+      TextEditingController(text: '');
   final TextEditingController emailController = TextEditingController(text: '');
   final TextEditingController passwordController =
       TextEditingController(text: '');
@@ -29,14 +35,31 @@ class LoginPage extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.only(
-              top: 90,
-              left: 160,
+              top: 60,
+              left: 340,
+              right: 27,
             ),
-            width: 97,
-            height: 93,
+            width: 60,
+            height: 40,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/logo_bg.png'),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              top: 60,
+              left: 27,
+            ),
+            child: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: whiteColor,
+                size: 30,
               ),
             ),
           ),
@@ -45,11 +68,38 @@ class LoginPage extends StatelessWidget {
     }
 
     Widget inputSection() {
+      Widget fullNameForm() {
+        return CustomTextFormField(
+          title: 'Full Name',
+          hint: 'Enter your name',
+          marginTop: 38,
+          controller: fullNameController,
+        );
+      }
+
+      Widget birthDateForm() {
+        return CustomTextFormField(
+          title: 'Birth Date',
+          hint: 'Enter your Birth Date',
+          marginTop: 10,
+          controller: birthDateController,
+        );
+      }
+
+      Widget countryForm() {
+        return CustomTextFormField(
+          title: 'Country',
+          hint: 'Enter your Country',
+          marginTop: 10,
+          controller: countryController,
+        );
+      }
+
       Widget emailForm() {
         return CustomTextFormField(
           title: 'Email',
           hint: 'Enter your email',
-          marginTop: 40,
+          marginTop: 10,
           controller: emailController,
         );
       }
@@ -64,16 +114,16 @@ class LoginPage extends StatelessWidget {
         );
       }
 
-      Widget loginButton() {
+      Widget signUpButton() {
         return Container(
           width: double.infinity,
           height: 55,
           margin: EdgeInsets.only(
-            top: 82,
+            top: 30,
           ),
           child: TextButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/login');
+              Navigator.pop(context);
             },
             style: TextButton.styleFrom(
                 backgroundColor: primaryColor,
@@ -81,7 +131,7 @@ class LoginPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(defaultRadius),
                 )),
             child: Text(
-              'Login',
+              'Sign Up',
               style: whiteTextStyle.copyWith(
                 fontSize: 16,
                 fontWeight: semiBold,
@@ -91,22 +141,24 @@ class LoginPage extends StatelessWidget {
         );
       }
 
-      Widget signUpButton() {
+      Widget loginButton() {
         return Container(
           margin: EdgeInsets.only(
-            top: 100,
+            top: 30,
           ),
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             child: RichText(
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Don\'t have any Account? ',
+                    text: 'Already have an Account? ',
                     style: blackTextStyle,
                   ),
                   TextSpan(
-                    text: 'Sign Up',
+                    text: 'Login',
                     style: redTextStyle,
                   ),
                 ],
@@ -116,15 +168,16 @@ class LoginPage extends StatelessWidget {
         );
       }
 
+      //NOTE: SIGN UP BOX
       return Container(
         margin: EdgeInsets.only(
-          top: 270,
+          top: 150,
         ),
         padding: EdgeInsets.symmetric(
           horizontal: 28,
         ),
         width: double.infinity,
-        height: 600,
+        height: 766,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(95),
@@ -139,7 +192,7 @@ class LoginPage extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  'Login',
+                  'Sign Up',
                   style: blackTextStyle.copyWith(
                     fontSize: 24,
                     fontWeight: bold,
@@ -147,10 +200,13 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
+            fullNameForm(),
+            birthDateForm(),
+            countryForm(),
             emailForm(),
             passwordForm(),
-            loginButton(),
             signUpButton(),
+            loginButton(),
           ],
         ),
       );

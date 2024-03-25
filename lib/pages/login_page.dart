@@ -72,9 +72,7 @@ class LoginPage extends StatelessWidget {
             top: 82,
           ),
           child: TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/login');
-            },
+            onPressed: () {},
             style: TextButton.styleFrom(
                 backgroundColor: primaryColor,
                 shape: RoundedRectangleBorder(
@@ -97,7 +95,9 @@ class LoginPage extends StatelessWidget {
             top: 100,
           ),
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/sign-up');
+            },
             child: RichText(
               text: TextSpan(
                 children: [
