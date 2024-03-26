@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vacantie_app/pages/home_page.dart';
 import 'package:vacantie_app/shared/custom_bottom_navigation_item.dart';
 import 'package:vacantie_app/shared/theme.dart';
 
@@ -7,6 +8,10 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget buildContent() {
+      return HomePage();
+    }
+
     Widget customBottomNavigation() {
       return Align(
         alignment: Alignment.bottomCenter,
@@ -44,6 +49,7 @@ class MainPage extends StatelessWidget {
     return Scaffold(
         body: Stack(
       children: [
+        buildContent(),
         customBottomNavigation(),
       ],
     ));
