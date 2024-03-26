@@ -171,13 +171,13 @@ class SignUpPage extends StatelessWidget {
       //NOTE: SIGN UP BOX
       return Container(
         margin: EdgeInsets.only(
-          top: 150,
+          top: 120,
         ),
         padding: EdgeInsets.symmetric(
           horizontal: 28,
         ),
         width: double.infinity,
-        height: 766,
+        height: 730,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(95),
