@@ -38,7 +38,7 @@ class OnBoardingPage extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.only(
-              top: 536,
+              top: 525,
               left: defaultMargin,
             ),
             child: Column(
@@ -67,8 +67,7 @@ class OnBoardingPage extends StatelessWidget {
             margin: EdgeInsets.only(
               left: defaultMargin,
               right: defaultMargin,
-              top: 753,
-              bottom: 60,
+              top: 730,
             ),
             child: TextButton(
               onPressed: () {

@@ -8,7 +8,7 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Text(
-          'Home Page',
+          'Main Page',
         ),
       ),
     );
