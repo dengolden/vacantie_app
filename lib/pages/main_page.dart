@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vacantie_app/pages/home_page.dart';
-import 'package:vacantie_app/shared/custom_bottom_navigation_item.dart';
+import 'package:vacantie_app/widgets/custom_bottom_navigation_item.dart';
 import 'package:vacantie_app/shared/theme.dart';
 
 class MainPage extends StatelessWidget {
@@ -16,6 +16,9 @@ class MainPage extends StatelessWidget {
       return Align(
         alignment: Alignment.bottomCenter,
         child: Container(
+          margin: EdgeInsets.only(
+            left: 20,
+          ),
           width: double.infinity,
           height: 68,
           decoration: BoxDecoration(

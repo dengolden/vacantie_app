@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:vacantie_app/shared/theme.dart';
+import 'package:vacantie_app/widgets/popular_countries_item.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -155,10 +158,79 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget popularCountries() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 36,
+          left: defaultMargin,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Popular Countries',
+                  style: blackTextStyle.copyWith(
+                    fontWeight: semiBold,
+                    fontSize: 18,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    right: 14,
+                  ),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'See All',
+                      style: greyTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  PopularCountriesItem(
+                    imageUrl: 'assets/home_bali.png',
+                    title: 'Bali',
+                    isRecommended: true,
+                  ),
+                  PopularCountriesItem(
+                    imageUrl: 'assets/home_paris.png',
+                    title: 'Paris',
+                  ),
+                  PopularCountriesItem(
+                    imageUrl: 'assets/home_england.png',
+                    title: 'England',
+                  ),
+                  PopularCountriesItem(
+                    imageUrl: 'assets/home_venice.png',
+                    title: 'Venice',
+                  ),
+                  PopularCountriesItem(
+                    imageUrl: 'assets/home_tokyo.png',
+                    title: 'Tokyo',
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return ListView(
       children: [
         header(),
         homeNavRow(),
+        popularCountries(),
       ],
     );
   }
