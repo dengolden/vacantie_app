@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:vacantie_app/shared/theme.dart';
 
 class HomePage extends StatelessWidget {
@@ -98,9 +96,69 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget homeNavRow() {
+      Widget navigationRowItem(String title, bool isSelected) {
+        return Container(
+          margin: EdgeInsets.only(
+            top: 25,
+            left: 30,
+          ),
+          child: Container(
+            margin: EdgeInsets.only(
+              right: 20,
+            ),
+            child: Column(
+              children: [
+                Text(
+                  title,
+                  style: isSelected
+                      ? redTextStyle.copyWith(
+                          fontWeight: semiBold,
+                          fontSize: 12,
+                        )
+                      : greyTextStyle.copyWith(
+                          fontWeight: regular,
+                          fontSize: 12,
+                        ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: 2,
+                  ),
+                  width: 12,
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: isSelected ? primaryColor : Colors.transparent,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      }
+
+      return SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Expanded(
+          child: Row(
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              navigationRowItem('All', true),
+              navigationRowItem('Asia', false),
+              navigationRowItem('America', false),
+              navigationRowItem('Africa', false),
+              navigationRowItem('Europe', false),
+              navigationRowItem('North America', false),
+            ],
+          ),
+        ),
+      );
+    }
+
     return ListView(
       children: [
         header(),
+        homeNavRow(),
       ],
     );
   }
