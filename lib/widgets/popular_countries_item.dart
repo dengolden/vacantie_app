@@ -14,66 +14,71 @@ class PopularCountriesItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 120,
-      height: 170,
-      margin: EdgeInsets.only(
-        top: 20,
-        right: 20,
-      ),
-      decoration: BoxDecoration(
-        color: secondWhiteColor,
-        borderRadius: BorderRadius.circular(defaultRadius),
-      ),
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              Container(
-                width: 120,
-                height: 120,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(imageUrl),
-                  ),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(defaultRadius),
-                    topRight: Radius.circular(defaultRadius),
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/detail');
+      },
+      child: Container(
+        width: 120,
+        height: 170,
+        margin: EdgeInsets.only(
+          top: 20,
+          right: 20,
+        ),
+        decoration: BoxDecoration(
+          color: secondWhiteColor,
+          borderRadius: BorderRadius.circular(defaultRadius),
+        ),
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Container(
+                  width: 120,
+                  height: 120,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(imageUrl),
+                    ),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(defaultRadius),
+                      topRight: Radius.circular(defaultRadius),
+                    ),
                   ),
                 ),
-              ),
-              if (isRecommended)
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    width: 64,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      color: primaryColor,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(30),
-                        topRight: Radius.circular(defaultRadius),
+                if (isRecommended)
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      width: 64,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        color: primaryColor,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(30),
+                          topRight: Radius.circular(defaultRadius),
+                        ),
+                      ),
+                      child: Icon(
+                        Icons.star,
+                        color: whiteColor,
                       ),
                     ),
-                    child: Icon(
-                      Icons.star,
-                      color: whiteColor,
-                    ),
                   ),
-                ),
-            ],
-          ),
-          SizedBox(
-            height: 11,
-          ),
-          Text(
-            title,
-            style: blackTextStyle.copyWith(
-              fontSize: 18,
-              fontWeight: medium,
+              ],
             ),
-          ),
-        ],
+            SizedBox(
+              height: 11,
+            ),
+            Text(
+              title,
+              style: blackTextStyle.copyWith(
+                fontSize: 18,
+                fontWeight: medium,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

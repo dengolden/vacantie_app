@@ -20,7 +20,7 @@ class MainPage extends StatelessWidget {
             left: 20,
           ),
           width: double.infinity,
-          height: 68,
+          height: 72,
           decoration: BoxDecoration(
             color: highlightColor,
           ),
@@ -50,11 +50,14 @@ class MainPage extends StatelessWidget {
     }
 
     return Scaffold(
-        body: Stack(
-      children: [
-        buildContent(),
-        customBottomNavigation(),
-      ],
+        body: SafeArea(
+      bottom: false,
+      child: Stack(
+        children: [
+          buildContent(),
+          customBottomNavigation(),
+        ],
+      ),
     ));
   }
 }
