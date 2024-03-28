@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:vacantie_app/shared/theme.dart';
+import 'package:vacantie_app/widgets/ongoing_event_item.dart';
 import 'package:vacantie_app/widgets/popular_countries_item.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,7 +12,7 @@ class HomePage extends StatelessWidget {
       return Container(
         width: double.infinity,
         margin: EdgeInsets.only(
-          top: 30,
+          top: 20,
           left: defaultMargin,
           right: defaultMargin,
         ),
@@ -226,11 +225,85 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget ongoingEvents() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 40,
+          left: defaultMargin,
+          bottom: 50,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Ongoing Events',
+                  style: blackTextStyle.copyWith(
+                    fontWeight: semiBold,
+                    fontSize: 18,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    right: 14,
+                  ),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'See All',
+                      style: greyTextStyle.copyWith(
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  OngoingEventsItem(
+                    title: 'Rio Carnival, Rio\nde Janeiro',
+                    location: 'Brazil',
+                    imageUrl: 'assets/event_rio.png',
+                  ),
+                  OngoingEventsItem(
+                    title: 'Sapporo Snow\nFestival',
+                    location: 'Japan',
+                    imageUrl: 'assets/event_japan.png',
+                  ),
+                  OngoingEventsItem(
+                    title: 'Padar Island\nFestival',
+                    location: 'Indonesia',
+                    imageUrl: 'assets/event_indonesia.png',
+                  ),
+                  OngoingEventsItem(
+                    title: 'Cappadocia\nTours',
+                    location: 'Turkey',
+                    imageUrl: 'assets/event_turkey.png',
+                  ),
+                  OngoingEventsItem(
+                    title: 'Stonehenge\nVisits',
+                    location: 'United Kingdom',
+                    imageUrl: 'assets/event_united_kingdom.png',
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return ListView(
       children: [
         header(),
         homeNavRow(),
         popularCountries(),
+        ongoingEvents(),
       ],
     );
   }
